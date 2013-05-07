@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}{% parent %}{% endblock %}
+{% block head %}
+	{% parent %}
+	<link rel="stylesheet" href="css/custom.css">
+{% endblock %}
+{% block content %}
+<h1>Contact</h1>
+<form>
+	<label>Name: <input type="text" name="name" /></label><br><label>E-mail: <input type="text" name="email" /></label><br>
+	<input type="submit" />
+</form>
+{{ bar }}{{ foo }}
+{% endblock %}

@@ -1,0 +1,18 @@
+{
+	  "name" : "stephanieandgreg.us"
+	, "version" : "0.0.1"
+	, "dependencies" : {
+		  "express" : "3.x"
+		, "connect" : "latest"
+		, "swig" : ""
+		, "consolidate" : "0.8.x"
+		, "flatiron" : "*"
+		, "require-dir" : "latest"
+	}, "devDependencies" : {
+		  "mocha" : "latest"
+		, "zombie": "2.0.0-alpha12"
+		, "should": "latest"
+	}, "scripts" :{
+      "test" : "./node_modules/.bin/mocha"
+  }
+}

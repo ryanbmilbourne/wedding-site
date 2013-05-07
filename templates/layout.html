@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}StephanieAndGreg.us{% endblock %}</title>
+	{% block head %}
+	{% endblock %}
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div style="width:1000px;height:900px;background-color:#80CFCF;">
+	<div style="margin:15px;background-color:white;">
+		<h1>The wedding of Stephanie Schmidt and Greg Cochard</h1>
+		<br><br>
+		April 25, 2014<br>
+		<a href="https://maps.google.com/maps?ie=UTF8&cid=15646201110297392647&q=Five+Crowns&iwloc=A&gl=US&hl=en">
+		Five Crowns, 3801 East Coast Hwy, CA 92625</a>
+		{% block content %}{% endblock %}
+	</div>
+</div>
+</body>
+</html>
