@@ -1,12 +1,29 @@
 body {
 	color:#ED8474;
-	background-color:#81D8D0;
+	/*background-color:#81D8D0;*/
+	background-color:#6FC7B9;
 	font-family: 'Josefin Sans', sans-serif;
 }
 
-h1 {
+h1, h2 {
     color:#ED8474;
-    font-family: 'Quattrocento Sans', sans-serif;
+    font-family: 'Fjord One', serif;
+    font-weight: normal;
+}
+
+.jumbotron h1 {
+    background: url('../images/masthead.png') no-repeat top center;
+    color: white;
+    line-height: 5em;
+    margin-bottom: -1em;
+}
+
+.jumbotron {
+    background-color:white;
+}
+
+hr.dots {
+    height: 0; width:25em; border-style: dotted; border-width: 1em 0 0 0; border-color: gray; display:inline-block;
 }
 
 /*** available fonts from here: http://www.google.com/fonts/#ChoosePlace:select/Collection:Caudex|Josefin+Sans|Quando|Molengo|Metrophobic|Marvel|Pontano+Sans|Quattrocento|Quattrocento+Sans
@@ -19,4 +36,5 @@ font-family: 'Marvel', sans-serif;
 font-family: 'Pontano Sans', sans-serif;
 font-family: 'Quattrocento', serif;
 font-family: 'Quattrocento Sans', sans-serif;
+font-family: 'Fjord One', serif;
 end available fonts ***/
