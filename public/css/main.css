@@ -1,4 +1,22 @@
 body {
 	color:#ED8474;
 	background-color:#81D8D0;
+	font-family: 'Josefin Sans', sans-serif;
 }
+
+h1 {
+    color:#ED8474;
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
+/*** available fonts from here: http://www.google.com/fonts/#ChoosePlace:select/Collection:Caudex|Josefin+Sans|Quando|Molengo|Metrophobic|Marvel|Pontano+Sans|Quattrocento|Quattrocento+Sans
+font-family: 'Caudex', serif;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Quando', serif;
+font-family: 'Molengo', sans-serif;
+font-family: 'Metrophobic', sans-serif;
+font-family: 'Marvel', sans-serif;
+font-family: 'Pontano Sans', sans-serif;
+font-family: 'Quattrocento', serif;
+font-family: 'Quattrocento Sans', sans-serif;
+end available fonts ***/

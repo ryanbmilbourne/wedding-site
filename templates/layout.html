@@ -1,22 +1,48 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
+	<link href='http://fonts.googleapis.com/css?family=Caudex|Josefin+Sans|Quando|Molengo|Metrophobic|Marvel|Pontano+Sans|Quattrocento|Quattrocento+Sans' rel='stylesheet' type='text/css'>
 	<title>{% block title %}StephanieAndGreg.us{% endblock %}</title>
 	{% block head %}
 	{% endblock %}
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 	<link rel="stylesheet" href="css/main.css">
+	<script type="text/javascript">
+	
+	</script>
 </head>
 <body>
-<div style="width:1000px;height:900px;background-color:#80CFCF;">
-	<div style="margin:15px;background-color:white;">
-		<h1>The wedding of Stephanie Schmidt and Greg Cochard</h1>
-		<br><br>
-		April 25, 2014<br>
-		<a href="https://maps.google.com/maps?ie=UTF8&cid=15646201110297392647&q=Five+Crowns&iwloc=A&gl=US&hl=en">
-		Five Crowns, 3801 East Coast Hwy, CA 92625</a>
-		{% block content %}{% endblock %}
-	</div>
+<!--div id="loading" style="z-index:9999;opacity:0.75;width:100%;height:100%;position:absolute;top:0;left:0;background-color:black;">Loading...</div-->
+<!--div style="width:1000px;height:900px;background-color:#80CFCF;" class="container"-->
+<div class="container">
+	<!div style="margin:15px;background-color:white;">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li class="active">
+                <a href="/">Home</a>
+            </li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="hero-unit jumbotron text-center"><h1>The Wedding of Stephanie Schmidt and Greg Cochard</h1><br>
+    April 26, 2014<br>
+    <address>
+    <strong>Five Crowns</strong><br>
+    <a href="https://maps.google.com/maps?ie=UTF8&amp;cid=15646201110297392647&amp;q=Five+Crowns&amp;iwloc=A&amp;gl=US&amp;hl=en">3801 East Coast Hwy<br>
+    Corona del Mar, CA 92625</a><br>
+    Phone: 949.760.0331</address>
+    </div>
+    
+    
+    {% block content %}{% endblock %}
+	<!/div>
+	<br>
+    <div class="footer">
+        <div class="well pull-right muted">&copy; 2013 Greg Cochard all rights reserved</div>
+    </div>
 </div>
+<script data-main="js/app.js" src="components/requirejs/require.js"></script>
 </body>
 </html>

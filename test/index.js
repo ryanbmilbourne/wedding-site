@@ -16,8 +16,8 @@ describe('server',function(){
 });
 
 describe('index page',function(){
-	it('should have an awesome message',function(){
-		browser.text('p').should.include('awesome');
+	it('should have a wedding message',function(){
+		browser.text('h1').should.include('Wedding');
 	});
 	it('should have a stylesheet'/*,function(){
 		browser.document.styleSheets.length.should.be.above(1);

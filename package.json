@@ -2,16 +2,18 @@
 	  "name" : "stephanieandgreg.us"
 	, "version" : "0.0.1"
 	, "dependencies" : {
-		  "express" : "3.x"
-		, "connect" : "latest"
-		, "swig" : ""
-		, "consolidate" : "0.8.x"
-		, "flatiron" : "*"
-		, "require-dir" : "latest"
+		  "express" : "3.1.0"
+		, "connect" : "2.7.9"
+		, "swig" : "0.13.5"
+		, "consolidate" : "0.8.0"
+		, "flatiron" : "0.3.5"
+		, "require-dir" : "0.1.0"
+		, "mongoose" : "3.6.11"
+		, "socket.io" : "0.9.14"
 	}, "devDependencies" : {
-		  "mocha" : "latest"
-		, "zombie": "2.0.0-alpha12"
-		, "should": "latest"
+		  "mocha" : "1.9.0"
+		, "zombie": "2.0.0-alpha18"
+		, "should": "1.2.2"
 	}, "scripts" :{
       "test" : "./node_modules/.bin/mocha"
   }
