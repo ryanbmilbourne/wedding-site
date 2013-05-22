@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!--link href='http://fonts.googleapis.com/css?family=Caudex|Josefin+Sans|Quando|Molengo|Metrophobic|Marvel|Pontano+Sans|Quattrocento|Quattrocento+Sans' rel='stylesheet' type='text/css'-->
+	<title>{% block title %}StephanieAndGreg.us{% endblock %}</title>
+	{% block head %}
+	{% endblock %}
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hero-unit jumbotron text-center font-hidden"><h4>we're getting married, er...managed</h4>
+            <div class="row-fluid text-center">
+                <div class="span12">
+                    <form class="form-horizontal" id="manage" action="/manager" method="post">
+                		<table class="table table-striped">
+                            <tr>
+                                <th>Item</th><th>Description</th><th>Image</th><th>Delete</th>
+                            </tr>
+                            {% for item in items %}
+                            <tr class="editable">
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.desc }}</td>
+                                <td><img src="{{ item.img.src }}" title="{{ item.img.title }}"></td>
+                                <td><input type="button" class="btn" name="Delete" data-id="{{item._id}}" value="Delete" /></td>
+                            </tr>
+                            {% endfor %}
+            			</table>
+            			<input class="btn" type="button" value="New" />
+            			<input class="btn" type="submit" value="Save" />
+            		</form>
+            		<div class="alert alert-success {{thanksdiv}}">{{thanks}}</div>
+            		<div class="alert alert-error {{errordiv}}">{{error}}</div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script data-main="js/app.js" src="components/requirejs/require.js"></script>
+</body>
+</html>

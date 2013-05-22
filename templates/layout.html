@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<!--div id="loading" style="z-index:9999;opacity:0.75;width:100%;height:100%;position:absolute;top:0;left:0;background-color:black;">Loading...</div-->
+	<div id="loading" style="z-index:9999;opacity:0.95;width:100%;height:100%;position:absolute;top:0;left:0;background-color:#6FC7B9;"></div>
 <div class="container">
     <div class="masthead">
         <!--ul class="nav nav-pills pull-right">
@@ -21,8 +21,8 @@
             <li><a href="contact">Contact</a></li>
         </ul-->
     </div>
-    <div class="hero-unit jumbotron text-center"><h1>we're getting married</h1>
-        <h2>Stephanie &amp; Greg</h2><svg width="600px" height="50px" viewBox="0 0 600 50"><line x1="20" x2="600" y1="25" y2="25" stroke="gray" stroke-width="5" stroke-linecap="round" stroke-dasharray="1, 30"/></svg><br>
+    <div class="hero-unit jumbotron text-center font-hidden"><a href="/"><h1>we're getting married</h1></a>
+        <h2>Stephanie &amp; Greg</h2><img src="../images/dots.png"><br>
         <span class="muted">Saturday, April 26, 2014</span><br>
         <address class="muted">
         Five Crowns | 3801 East Coast Hwy, 
@@ -31,20 +31,20 @@
     
         <div class="row-fluid text-center">
             <div class="span2">
-                <img src="../images/calendar.png"><br><span class="muted">RSVP HERE</span><br><br>
-                <img src="../images/registry.png"><br><span class="muted">Gift Registry</span>
+                <a class="muted" href="/rsvp"><img src="../images/calendar2.png"><br>RSVP HERE</a><br><br>
+                <a class="muted" href="/registry"><img src="../images/registry2.png"><br>Gift Registry</a>
             </div>
             <div class="span8">
                 {% block content %}{% endblock %}<br><br>
                 <img src="../images/footer-image.png">
             </div>
             <div class="span2">
-                <img src="../images/camera.png"><br><span class="muted">Engagement Photos</span><br><br>
-                <img src="../images/mail.png"><br><span class="muted">Drop us a love note</span>
+                <a class="muted" href="/photos"><img src="../images/camera2.png"><br>Engagement Photos</a><br><br>
+                <a class="muted" href="/contact"><img src="../images/mail2.png"><br>Drop us a love note</a>
             </div>
         </div>
         <br><br>
-        <div class="muted text-center">A Future Mr. and Mrs. Cochard Creation &copy; 2013 all rights reserved</div>
+        <div class="muted text-center">A Future Mr. &amp; Mrs. Cochard Creation &copy; 2013 all rights reserved</div>
     </div>
 </div>
 <script data-main="js/app.js" src="components/requirejs/require.js"></script>

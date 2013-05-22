@@ -12,7 +12,8 @@ requirejs.config({
         bootstrap: '../js/bootstrap',
         webfonts: '../js/webfonts',
         svg: '../js/svg.min',
-        raphael: '../js/raphael.min'
+        raphael: '../js/raphael.min',
+        manager: '../js/manager'
     },
     shim: {
         bootstrap: ['jquery'],
@@ -21,7 +22,7 @@ requirejs.config({
 });
 
 
-define(['jquery', 'raphael', 'webfonts', 'bootstrap'],
+define(['jquery', 'raphael', 'webfonts', 'bootstrap', 'manager'],
 function   ($) {
     //jQuery, canvas and the app/sub module are all
     //loaded and can be used here now.
