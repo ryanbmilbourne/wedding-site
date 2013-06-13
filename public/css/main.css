@@ -26,9 +26,44 @@ hr.dots {
     height: 0; width:25em; border-style: dotted; border-width: 1em 0 0 0; border-color: gray; display:inline-block;
 }
 
-/*** available fonts from here: http://www.google.com/fonts/#ChoosePlace:select/Collection:Caudex|Josefin+Sans|Quando|Molengo|Metrophobic|Marvel|Pontano+Sans|Quattrocento|Quattrocento+Sans
+h3 {
+    font-family: 'Fjord One', serif;
+    font-weight: 100;
+    color: #6FC7B9;
+}
+
+h4 {
+    font-family: 'Fjord One', serif;
+    font-weight: 100;
+}
+
+form .btn {
+    color:#ED8474;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-top:8px;
+}
+
+.bottom-right-border {
+    border-bottom: 2px solid #ED8474;
+    border-right: 2px solid #ED8474;
+}
+
+.top-right-border {
+    border-top: 2px solid #ED8474;
+    border-right: 2px solid #ED8474;
+}
+
+.right-border {
+    border-right: 2px solid #ED8474;
+}
+
+.wf-loading { 
+	font-family: serif;
+}
+
+/*** available fonts from here: http://www.google.com/fonts/#ChoosePlace:select/Collection:Caudex|Josefin+Sans|Quando|Molengo|Metrophobic|Marvel|Pontano+Sans|Quattrocento|Quattrocento+Sans|Fjord+One
 font-family: 'Caudex', serif;
-font-family: 'Josefin Sans', sans-serif;
+font-family: 'Josefin Sans', sans-serif; -- this is for body text, etc
 font-family: 'Quando', serif;
 font-family: 'Molengo', sans-serif;
 font-family: 'Metrophobic', sans-serif;
@@ -36,5 +71,5 @@ font-family: 'Marvel', sans-serif;
 font-family: 'Pontano Sans', sans-serif;
 font-family: 'Quattrocento', serif;
 font-family: 'Quattrocento Sans', sans-serif;
-font-family: 'Fjord One', serif;
+font-family: 'Fjord One', serif; -- this is for headers
 end available fonts ***/

@@ -4,5 +4,6 @@
 	, "dependencies" : {
 		  "bootstrap" : "*"
 		, "requirejs" : "*"
+		, "jquery-filedrop" : "*"
   }
 }

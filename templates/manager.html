@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<!--link href='http://fonts.googleapis.com/css?family=Caudex|Josefin+Sans|Quando|Molengo|Metrophobic|Marvel|Pontano+Sans|Quattrocento|Quattrocento+Sans' rel='stylesheet' type='text/css'-->
 	<title>{% block title %}StephanieAndGreg.us{% endblock %}</title>
 	{% block head %}
 	{% endblock %}
@@ -18,13 +17,15 @@
                     <form class="form-horizontal" id="manage" action="/manager" method="post">
                 		<table class="table table-striped">
                             <tr>
-                                <th>Item</th><th>Description</th><th>Image</th><th>Delete</th>
+                                <th>Item</th><th>Description</th><th>Price</th><th>Image</th><th>Upload new/replacement image</th><th>Delete</th>
                             </tr>
                             {% for item in items %}
-                            <tr class="editable">
+                            <tr class="editable" data-id="{{item._id}}">
                                 <td>{{ item.name }}</td>
                                 <td>{{ item.desc }}</td>
-                                <td><img src="{{ item.img.src }}" title="{{ item.img.title }}"></td>
+                                <td>${{ item.price }}</td>
+                                <td class="img">{% if item.img.src %}<img src="{{ item.img.src }}" style="width:100px;" title="{{ item.img.title }}"><br><input type="button" class="btn btn-warning" data-id="{{item._id}}" name="delete-image" value="Delete Image" />{% else %}No Image{% endif %}</td>
+                                <td><div class="fileDrop" data-id="{{item._id}}"></div></td>
                                 <td><input type="button" class="btn" name="Delete" data-id="{{item._id}}" value="Delete" /></td>
                             </tr>
                             {% endfor %}
@@ -39,6 +40,6 @@
             </div>
         </div>
     </div>
-    <script data-main="js/app.js" src="components/requirejs/require.js"></script>
+    <script data-main="js/app-manager.js" src="components/requirejs/require.js"></script>
 </body>
 </html>
