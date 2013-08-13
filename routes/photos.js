@@ -1,10 +1,16 @@
 var config = require('../modules/config')
-  , app = config.app;
+  , app = config.app
+	, models = require('../models')
+	, Photo = models.Photo;
 
 app.get('/photos',function(req,res){
-    res.render('photos',{
-        name:'stephanieandgreg.us - Photos',
-        errordiv:'hidden',
-        thanksdiv:'hidden'
-    });
+    Photo.find({},function(err,photos){
+			res.render('photos',{
+					name:'stephanieandgreg.us - Photos',
+					photos: photos,
+					errordiv:err?'':'hidden',
+					error:err,
+					thanksdiv:'hidden'
+			});
+		});
 });
