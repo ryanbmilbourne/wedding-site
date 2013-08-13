@@ -9,10 +9,17 @@ var mongoose = require('mongoose')
         title:String
     }
   })
-  , Registry = mongoose.model('Registry',registrySchema);
+  , Registry = mongoose.model('Registry',registrySchema)
+  , mediaSchema = new mongoose.Schema({
+        src:String,
+        location:String,
+        title:String
+  })
+  , Media = mongoose.model('Media',mediaSchema);
 
 mongoose.createConnection('mongodb://localhost/test');
 module.exports = { //ALL_CAPS represent static values, lowercase_stuff are dynamically required resources
 	mongoose: mongoose,
-	Registry: Registry
+	Registry: Registry,
+	Media: Media
 };

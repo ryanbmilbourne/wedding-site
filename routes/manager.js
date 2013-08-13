@@ -1,3 +1,4 @@
+/*jslint node:true*/
 var config = require('../modules/config')
   , app = config.app
   , mongoose = config.mongoose
@@ -75,7 +76,28 @@ app.post('/manager/upload',function(req,res){
                 });
             });
         });
-    }
+    }else{
+		fs.rename(files.fileUpload.path, serverPath, function(err){
+            if(err){
+                return res.json({err:err,message:"couldn't rename file!"});
+            }
+			var media = new Media();
+			media.src = publicPath;
+			media.location = serverPath;
+			media.save(function(err,saved){
+				if(err){
+					fs.unlink(serverPath,function(err){
+						if(err){
+                   			res.json({err:err,message:"couldn't save doc OR delete uploaded img"});
+                			}
+                			res.json({err:err,message:"couldn't save document!"});
+						return;
+					});
+				}
+				res.json({imgPath:publicPath});
+            });
+		});
+	}
 });
 
 app.put('/manager/:id',function(req,res){
