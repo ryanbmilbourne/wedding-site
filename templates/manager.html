@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>{% block title %}StephanieAndGreg.us{% endblock %}</title>
-	{% block head %}
-	{% endblock %}
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-	<link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8">
+  <title>{% block title %}StephanieAndGreg.us{% endblock %}</title>
+  {% block head %}
+  {% endblock %}
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="container">
@@ -15,8 +15,8 @@
             <div class="row-fluid text-center">
                 <div class="span12">
                     <form class="form-horizontal" id="manage" action="/manager" method="post">
-					<h5>Registry Items</h5>
-                		<table class="table table-striped">
+          <h5>Registry Items</h5>
+                    <table class="table table-striped">
                             <tr>
                                 <th>Item</th><th>Description</th><th>Price</th><th>Image</th><th>Upload new/replacement image</th><th>Delete</th>
                             </tr>
@@ -30,15 +30,15 @@
                                 <td><input type="button" class="btn" name="Delete" data-id="{{item._id}}" value="Delete" /></td>
                             </tr>
                             {% endfor %}
-            			</table>
-					<input class="btn" type="button" value="New" />
-            			<input class="btn" type="submit" value="Save" />
-					<hr>
-					<h5>Media Manager</h5>
-					<div id="newimg">upload arbitrary new image: <span class="fileDrop" data-id="{{item._id}}"></span></div>
-            		</form>
-            		<div class="alert alert-success {{thanksdiv}}">{{thanks}}</div>
-            		<div class="alert alert-error {{errordiv}}">{{error}}</div>
+                  </table>
+          <input class="btn" type="button" value="New" />
+                  <input class="btn" type="submit" value="Save" />
+          <hr>
+          <h5>Media Manager</h5>
+          <div id="newimg">upload arbitrary new image: <span class="fileDrop" data-id="{{item._id}}"></span></div>
+                </form>
+                <div class="alert alert-success {{thanksdiv}}">{{thanks}}</div>
+                <div class="alert alert-error {{errordiv}}">{{error}}</div>
                     <br><br>
                 </div>
             </div>

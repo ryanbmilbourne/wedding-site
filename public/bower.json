@@ -1,9 +1,9 @@
 {
-	  "name" : "stephanieandgreg.us"
-	, "version" : "0.0.1"
-	, "dependencies" : {
-		  "bootstrap" : "*"
-		, "requirejs" : "*"
-		, "jquery-filedrop" : "*"
+    "name" : "stephanieandgreg.us"
+  , "version" : "0.0.1"
+  , "dependencies" : {
+      "bootstrap" : "*"
+    , "requirejs" : "*"
+    , "jquery-filedrop" : "*"
   }
 }

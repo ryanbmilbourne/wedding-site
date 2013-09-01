@@ -4,6 +4,6 @@ var config = require('../modules/config')
 if(config.DEBUG){
     app.get('/restart',function(req,res){
         res.end('restarted server');
-    	process.exit();
+      process.exit();
     });
 }
