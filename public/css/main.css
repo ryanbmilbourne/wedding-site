@@ -12,7 +12,7 @@ h1, h2 {
 }
 
 .jumbotron h1 {
-    background: url('../images/masthead.png') no-repeat top center;
+    background: url('../images/header.png') no-repeat top center;
     color: white;
     line-height: 5em;
     margin-bottom: -1em;
