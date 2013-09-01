@@ -10,20 +10,20 @@ var models = require('./models')
       var results = [];
       fs.readdir(dir,function(err,list){
         console.log('found files: %s',JSON.stringify(list));
-        if(err) return callback(err);
+        if(err) { return callback(err); }
         var pending = list.length;
-        if(!pending) return callback(null,results);
+        if(!pending) { return callback(null,results); }
         list.forEach(function(file){
           file = dir + '/' + file;
           fs.stat(file, function(err,stat){
             if(stat && stat.isDirectory()){
               walk(file,function(err,res){
                 results = results.concat(res);
-                if(!--pending) callback(null,results);
+                if(!--pending) { callback(null,results); }
               });
             } else {
               results.push(file);
-              if(!--pending) callback(null,results);
+              if(!--pending) { callback(null,results); }
             }
           });
         });
@@ -32,7 +32,7 @@ var models = require('./models')
 var saving = 0;
 walk(imgPath,function(err,files){
   console.log('finished walking, found files %s',JSON.stringify(files));
-  if(err) process.exit(console.log(err));
+  if(err) { process.exit(console.log(err)); }
   files.forEach(function(file){
     if(path.extname(file) === '.png'){
       console.log('found png file: %s',file);

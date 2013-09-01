@@ -36,16 +36,20 @@ h4 {
     font-weight: 100;
 }
 
-/*
-.carousel .carousel-caption, .carousel .carousel-indicators, .carousel .carousel-control {
+.carousel .carousel-control {
   visibility: hidden;
 }
 
-.carousel:hover .carousel-caption, .carousel:hover .carousel-indicators, .carousel:hover .carousel-control {
+.hover-container:hover .carousel-control {
   visibility: visible;
+  opacity: .25;
 }
-*/
 
+.hover-container:hover .carousel-control:hover {
+  opacity:.5;
+}
+
+/*
 .carousel .carousel-control {
   position:relative;
 }
@@ -55,14 +59,32 @@ h4 {
 .carousel .carousel-control.right {
   float:right;
 }
+*/
+
+.carousel-inner .item img {
+  border-radius:5px;
+}
+
 .carousel .carousel-indicators {
   position:relative;
+  padding-left: 50px;
 }
 
 .carousel .carousel-indicators li {
-  text-indent:0 !important;
+  text-indent:0;
   width:auto;
   height:auto;
+  margin-right: calc((591px / 6) - 1px);
+  opacity: .75;
+  overflow:hidden;
+}
+
+.carousel .carousel-indicators li:last-child {
+  margin-right:0;
+}
+
+.carousel .carousel-indicators li.active {
+  opacity: 1;
 }
 
 form .btn {
