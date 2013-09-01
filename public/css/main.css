@@ -13,8 +13,8 @@ h1, h2 {
 .jumbotron h1 {
     background: url('../images/header.png') no-repeat top center;
     color: white;
-    line-height: 5em;
-    margin-bottom: -1em;
+    line-height: 320px;
+    margin-bottom: -100px;
 }
 
 .jumbotron {
@@ -22,7 +22,7 @@ h1, h2 {
 }
 
 hr.dots {
-    height: 0; width:25em; border-style: dotted; border-width: 1em 0 0 0; border-color: gray; display:inline-block;
+    height: 0; width:400px; border-style: dotted; border-width: 16px 0 0 0; border-color: gray; display:inline-block;
 }
 
 h3 {
@@ -34,6 +34,35 @@ h3 {
 h4 {
     font-family: 'Fjord One', serif;
     font-weight: 100;
+}
+
+/*
+.carousel .carousel-caption, .carousel .carousel-indicators, .carousel .carousel-control {
+	visibility: hidden;
+}
+
+.carousel:hover .carousel-caption, .carousel:hover .carousel-indicators, .carousel:hover .carousel-control {
+	visibility: visible;
+}
+*/
+
+.carousel .carousel-control {
+	position:relative;
+}
+.carousel .carousel-control.left {
+ float:left;
+}
+.carousel .carousel-control.right {
+	float:right;
+}
+.carousel .carousel-indicators {
+	position:relative;
+}
+
+.carousel .carousel-indicators li {
+	text-indent:0 !important;
+	width:auto;
+	height:auto;
 }
 
 form .btn {

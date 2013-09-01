@@ -4,15 +4,16 @@
 	{% parent %}
 {% endblock %}
 {% block content %}
-		<p>
-		Coming Soon...
-		</p>
-		{% for img in photos %}
-		<a rel="gallery" href="{{ img.src }}"><img src="{{ img.src }}"></a>
-		{% endfor %}
-
-		<div class="alert alert-success {{thanksdiv}}">{{thanks}}</div>
-		<div class="alert alert-error {{errordiv}}">{{error}}</div>
-
-
+		<div class="carousel slide" id="myCarousel" data-interval="8000">
+			<div class="carousel-inner">{% for img in photos %}
+				<div class="item{% if loop.first %} active{% endif %}"><img src="{{ img.src }}"></div>{% endfor %}
+			</div>
+			<br>
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+			<ol class="carousel-indicators">{% for img in photos %}
+				<li data-target="#myCarousel" data-slide-to={{ loop.index -1 }} {% if loop.first %}class="active"{% endif %}><img src="{{ img.src }}" style="width:100px;"></li>{% endfor %}
+			</ol>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			<!-- div class="carousel-caption"><h4>{{ img.title }}</h4>{{ img.subtitle }}</div -->
+		</div>
 {% endblock %}

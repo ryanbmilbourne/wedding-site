@@ -20,7 +20,8 @@ var mongoose = require('mongoose')
 				src:String,
 				location:String,
 				title:String,
-				subtitle:String
+				subtitle:String,
+				category:String
 	})
 	, Photo = mongoose.model('Photo',photoSchema);
 

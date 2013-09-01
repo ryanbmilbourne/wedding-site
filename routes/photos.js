@@ -4,7 +4,7 @@ var config = require('../modules/config')
 	, Photo = models.Photo;
 
 app.get('/photos',function(req,res){
-    Photo.find({},function(err,photos){
+    Photo.find({category:'engagement'},function(err,photos){
 			res.render('photos',{
 					name:'stephanieandgreg.us - Photos',
 					photos: photos,
