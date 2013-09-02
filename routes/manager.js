@@ -4,10 +4,13 @@ var config = require('../modules/config')
   , mongoose = config.mongoose
   , models = require('../models')
   , Registry = models.Registry
+  , Photo = models.Photo
+  , _ = require('lodash')
   , path = require('path')
   , fs = require('fs');
 
 app.get('/manager',function(req,res){
+    "use strict";
     if(req.query.create){
         var newReg = new Registry();
         newReg.name = 'test';
@@ -20,18 +23,29 @@ app.get('/manager',function(req,res){
     }
     else{
         Registry.find(function(err,registryEntries){
+          Photo.find(function(err2,photos){
+            if(err && err2){
+              err = {regErr:err,picErr:err2};
+            } else if(err2){
+              err = {picErr:err2};
+            } else if(err){
+              err = {regErr:err};
+            }
             res.render('manager',{
                 name:'stephanieandgreg.us - Manager',
                 items: registryEntries,
+                imgs: photos,
                 error: err,
                 errordiv: err?'':'hidden',
                 thanksdiv: 'hidden'
             });
+          });
         });
     }
 });
 
 app.post('/manager',function(req,res){
+    "use strict";
     var newReg = new Registry();
     newReg.name = 'test';
     newReg.desc = 'test desc';
@@ -43,6 +57,7 @@ app.post('/manager',function(req,res){
 });
 
 app.post('/manager/upload',function(req,res){
+    "use strict";
     console.log(req.files);
     console.log(req.query);
     console.log(req.body);
@@ -81,7 +96,7 @@ app.post('/manager/upload',function(req,res){
             if(err){
                 return res.json({err:err,message:"couldn't rename file!"});
             }
-      var media = new Media();
+      var media = new Photo();
       media.src = publicPath;
       media.location = serverPath;
       media.save(function(err,saved){
@@ -101,12 +116,14 @@ app.post('/manager/upload',function(req,res){
 });
 
 app.put('/manager/:id',function(req,res){
+    "use strict";
     var id = req.params.id
       , newdata = req.body.newdata;
     res.json({query:req.query,body:req.body,params:req.params});
 });
 
 app.put('/manager/:id/:member/:memberdata',function(req,res){
+    "use strict";
     var id = req.params.id
       , member = req.params.member
       , memberdata = req.params.memberdata;
@@ -138,6 +155,7 @@ app.put('/manager/:id/:member/:memberdata',function(req,res){
 });
 
 app.delete('/manager',function(req,res){
+    "use strict";
     if(req.body._id){
         Registry.findOne({_id:req.body._id},function(err,regEntry){
             var id = regEntry._id;

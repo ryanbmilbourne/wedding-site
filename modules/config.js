@@ -21,8 +21,8 @@ app.use(express.session(
 ));
 
 
-app.engine('.html',cons.swig);
-app.set('view engine','html');
+app.engine('swig',cons.swig);
+app.set('view engine','swig');
 
 swig.init({
   cache : app.get('env') === 'production',

@@ -38,28 +38,14 @@ h4 {
 
 .carousel .carousel-control {
   visibility: hidden;
+  background:none;
+  border:none;
+  border-radius:none;
 }
 
 .hover-container:hover .carousel-control {
   visibility: visible;
-  opacity: .25;
 }
-
-.hover-container:hover .carousel-control:hover {
-  opacity:.5;
-}
-
-/*
-.carousel .carousel-control {
-  position:relative;
-}
-.carousel .carousel-control.left {
- float:left;
-}
-.carousel .carousel-control.right {
-  float:right;
-}
-*/
 
 .carousel-inner .item img {
   border-radius:5px;

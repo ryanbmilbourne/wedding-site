@@ -21,7 +21,8 @@ var mongoose = require('mongoose')
         location:String,
         title:String,
         subtitle:String,
-        category:String
+        category:String,
+        order:Number
   })
   , Photo = mongoose.model('Photo',photoSchema);
 

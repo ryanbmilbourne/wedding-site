@@ -1,10 +1,12 @@
 var config = require('../modules/config')
   , app = config.app
   , models = require('../models')
-  , Photo = models.Photo;
+  , Photo = models.Photo
+  ;
 
 app.get('/photos',function(req,res){
-    Photo.find({category:'engagement'},function(err,photos){
+    "use strict";
+    Photo.find({category:'engagement'}).lean().sort({order:1}).exec(function(err,photos){
       res.render('photos',{
           name:'stephanieandgreg.us - Photos',
           photos: photos,
