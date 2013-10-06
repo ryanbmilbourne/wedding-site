@@ -12,17 +12,26 @@ requirejs.config({
         bootstrap: '../js/bootstrap',
         webfonts: '../js/webfonts',
         svg: '../js/svg.min',
-        raphael: '../js/raphael.min'
+        gallery: 'blueimp-gallery/js/jquery.blueimp-gallery.min',
+        raphael: '../js/raphael.min',
+        mygallery: '../js/gallery'
     },
     shim: {
         bootstrap: ['jquery'],
+        gallery: ['jquery','bootstrap'],
         raphael: ['svg']
     }
 });
 
 
-define(['jquery', 'raphael', 'webfonts', 'bootstrap'],
-function   ($) {
+define([
+    'jquery',
+    'gallery',
+    'mygallery',
+    'raphael',
+    'webfonts',
+    'bootstrap'
+    ], function ($,gallery,mygallery) {
     //jQuery, canvas and the app/sub module are all
     //loaded and can be used here now.
     //$('#loading').addClass('hide');

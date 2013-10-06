@@ -1,16 +1,18 @@
+'use strict';
+/*global define:false*/
 define([
     'jquery',
     'filedrop'
 ],function($){
     console.log('managerjs started');
-    $('#manage input[name="Delete"]').on('click',function(e){
+    $('#registry-manager').on('click','input[name="Delete"]',function(e){
         $.ajax('/manager',{
             type:'DELETE',
             data: {'_id':$(e.currentTarget).data('id')},
             success: function(data){
                 console.log(arguments);
                 if(!data.err && data.count){
-                    $t = $(e.currentTarget).parent().parent();
+                    var $t = $(e.currentTarget).parent().parent();
                     $t.fadeOut('fast',function(){$t.remove();});
                 }
             },
@@ -25,18 +27,18 @@ define([
         '<td><input type="text" name="price" placeholder="price" /></td>'+
         '<td><input type="button" class="btn" value="Save" /></td><td><input type="button" class="btn" value="Cancel" /></td></tr>').hide().fadeIn());
     });
-    $('#manage').on('click','input[value="Save"]',function(e){
+    $('#registry-manager').on('click','input[value="Save"]',function(e){
         //save now...
         //e.preventDefault();
-        $t = $(e.currentTarget).parent().parent();
+        var $t = $(e.currentTarget).parent().parent();
         $t.fadeOut('fast',function(){$t.remove();});
     });
-    $('#manage').on('click','input[value="Cancel"]',function(e){
+    $('#registry-manager').on('click','input[value="Cancel"]',function(e){
         console.log('cancel clicked');
-        $t = $(e.currentTarget).parent().parent();
+        var $t = $(e.currentTarget).parent().parent();
         $t.fadeOut('fast',function(){$t.remove();});
     });
-    $('#manage').on('click','input[name="delete-image"]',function(e){
+    $('#registry-manager').on('click','input[name="delete-image"]',function(e){
         e.preventDefault();
         $.ajax('/manager',{
             type:'DELETE',
@@ -44,7 +46,7 @@ define([
             success: function(data){
                 console.log(arguments);
                 if(!data.err && data.count){
-                    $t = $(e.currentTarget).parent();
+                    var $t = $(e.currentTarget).parent();
                     $t.html('No Image');
                 }
             },
@@ -53,11 +55,11 @@ define([
             }
         });
     });
-    $('#manage').on('dblclick','tr.editable',function(e){
+    $('#registry-manager').on('dblclick','tr.editable',function(e){
         console.log('dblclick called for tr editable');
-        $tr = $(e.currentTarget);
-        $name = $tr.children('td:first');
-        $desc = $tr.children('td:nth-child(2)');
+        var $tr = $(e.currentTarget),
+        $name = $tr.children('td:first'),
+        $desc = $tr.children('td:nth-child(2)'),
         $price = $tr.children('td:nth-child(3)');
         $name.data('name',$name.text());
         $desc.data('desc',$desc.text());
@@ -66,6 +68,77 @@ define([
         $desc.html('<input type="text" name="name" value="'+$desc.data('desc')+'" />');
         $price.html('<input type="text" name="name" value="'+$price.data('price')+'" />');
         console.log($tr,$name,$desc,$price);
+    });
+
+    $('#photo-manager').on('dblclick','tr.editable',function(e){
+      console.log('dblclick called for tr photo editable');
+      var $tr = $(e.currentTarget),
+      $image = $tr.children('td:first'),
+      $category = $tr.children('td:nth-child(2)'),
+      $title = $tr.children('td:nth-child(3)'),
+      $subtitle = $tr.children('td:nth-child(4)'),
+      $path = $tr.children('td:nth-child(5)'),
+      $pubpath = $tr.children('td:nth-child(6)'),
+      $order = $tr.children('td:nth-child(7)'),
+      $shown = $tr.children('td:nth-child(8)').find('input[type="checkbox"]');
+      if($tr.children('td').last().find('input[name="save"]').length === 0){
+        $category.data('category',$category.text());
+        $category.html('<input style="width:100px;" type="text" name="category" value="'+$category.data('category')+'" />');
+        $title.data('title',$title.text());
+        $title.html('<input style="width:120px;" type="text" name="title" value="'+$title.data('title')+'" />');
+        $subtitle.data('subtitle',$subtitle.text());
+        $subtitle.html('<input style="width:100px;" type="text" name="subtitle" value="'+$subtitle.data('subtitle')+'" />');
+        $order.data('order',$order.text());
+        $order.html('<input style="width:30px;" type="number" name="order" value="'+$order.data('order')+'" />');
+        $shown.data('shown',$shown.is(':checked'));
+        $shown.removeAttr('disabled');
+        $tr.append('<td><input type="button" name="save" value="Save" /> <input type="button" name="cancel" value="Cancel" /></td>');
+        var restoreRow = function(photo){
+          $category.text(photo?photo.category:$category.data('category'));
+          $title.text(photo?photo.title:$title.data('title'));
+          $subtitle.text(photo?photo.subtitle:$subtitle.data('subtitle'));
+          $order.text(photo?photo.order:$order.data('order'));
+          if(photo&&photo.shown){
+            $shown.prop('checked',true);
+          } else if(photo){
+            $shown.prop('checked',false);
+          } else if($shown.data('shown')) {
+            $shown.prop('checked',true);
+          } else {
+            $shown.prop('checked',false);
+          }
+          $shown.attr('disabled','disabled');
+          $tr.children('td').last().remove();
+          //finally, remove the event handler for the cancel button or we'll get multiple TDs removed as we go
+          $tr.off('click');
+        };
+        $tr.on('click','input[name="save"]',function(e){
+          //save the thing
+          $.ajax('/manager/photo/'+$tr.data('id'),{
+            type:'PUT',
+            data:{newdata:{
+              category:$category.find('input').val(),
+              title:$title.find('input').val(),
+              subtitle:$subtitle.find('input').val(),
+              order:$order.find('input').val(),
+              shown:$shown.is(':checked')
+            }}
+          }).then(function(data){
+            console.log(arguments);
+            if(data.error){
+              //show error
+              console.log(data);
+            }else{
+              //finally, restore the row
+              restoreRow(data.photo);
+            }
+          });
+        });
+        $tr.on('click','input[name="cancel"]',function(e){
+          //cancel editing
+          restoreRow();
+        });
+      }
     });
     
     $('#manage').on('click','input[name="Upload"]',function(e){

@@ -56,7 +56,7 @@ h4 {
   padding-left: 50px;
 }
 
-.carousel .carousel-indicators li {
+.carousel .carousel-indicators div {
   text-indent:0;
   width:auto;
   height:auto;
@@ -65,11 +65,23 @@ h4 {
   overflow:hidden;
 }
 
-.carousel .carousel-indicators li:last-child {
+.carousel-indicators div {
+  display: block;
+  float: left;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+  text-indent: -999px;
+  background-color: #CCC;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+}
+
+.carousel .carousel-indicators div:last-child {
   margin-right:0;
 }
 
-.carousel .carousel-indicators li.active {
+.carousel .carousel-indicators div.active {
   opacity: 1;
 }
 

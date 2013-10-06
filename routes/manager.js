@@ -22,8 +22,8 @@ app.get('/manager',function(req,res){
         });
     }
     else{
-        Registry.find(function(err,registryEntries){
-          Photo.find(function(err2,photos){
+        Registry.find().lean().exec(function(err,registryEntries){
+          Photo.find().lean().sort("order").exec(function(err2,photos){
             if(err && err2){
               err = {regErr:err,picErr:err2};
             } else if(err2){
@@ -120,6 +120,16 @@ app.put('/manager/:id',function(req,res){
     var id = req.params.id
       , newdata = req.body.newdata;
     res.json({query:req.query,body:req.body,params:req.params});
+});
+
+app.put('/manager/photo/:id',function(req,res){
+    "use strict";
+    console.log(req.body);
+    var id = req.params.id
+      , newdata = req.body.newdata;
+    Photo.findByIdAndUpdate(id,newdata,function(err,photodoc){
+      res.json({err:err,photo:photodoc});
+    });
 });
 
 app.put('/manager/:id/:member/:memberdata',function(req,res){

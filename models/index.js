@@ -22,7 +22,12 @@ var mongoose = require('mongoose')
         title:String,
         subtitle:String,
         category:String,
-        order:Number
+        order:Number,
+        shown:Boolean,
+        thmbloc:String,
+        thmbsrc:String,
+        medloc:String,
+        medsrc:String
   })
   , Photo = mongoose.model('Photo',photoSchema);
 

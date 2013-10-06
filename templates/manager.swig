@@ -16,7 +16,7 @@
         <div class="span12">
           <form class="form-horizontal" id="manage" action="/manager" method="post">
             <h5>Registry Items</h5>
-              <table class="table table-striped">
+              <table id="registry-manager" class="table table-striped">
                 <tr>
                   <th>Item</th><th>Description</th><th>Price</th><th>Image</th><th>Upload new/replacement image</th><th>Delete</th>
                 </tr>
@@ -35,19 +35,20 @@
               <input class="btn" type="submit" value="Save" />
               <hr>
               <h5>Photo Manager</h5>
-              <table class="table table-striped">
+              <table id="photo-manager" class="table table-striped">
                 <tr>
-                  <th>Image</th><th>Category</th><th>Title</th><th>Subtitle</th><th>Path</th><th>Public Path</th><th>Display Order</th>
+                  <th>Image</th><th>Category</th><th>Title</th><th>Subtitle</th><th>Path</th><th>Public Path</th><th>Display Order</th><th>Included</th>
                 </tr>
                 {% for img in imgs %}
                 <tr class="editable" data-id="{{ img._id }}">
-                  <td><img src="{{img.src}}"></td>
+                  <td><img src="{{img.thmbsrc}}"></td>
                   <td>{{img.category}}</td>
                   <td>{{img.title}}</td>
                   <td>{{img.subtitle}}</td>
                   <td>{{img.location}}</td>
                   <td>{{img.src}}</td>
                   <td>{{img.order}}</td>
+                  <td><input type="checkbox"{% if img.shown %} checked="checked"{% endif %} disabled="disabled" /></td>
                 </tr>
                 {% endfor %}
               </table>
