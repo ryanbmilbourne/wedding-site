@@ -91,7 +91,7 @@ define([
         $order.data('order',$order.text());
         $order.html('<input style="width:30px;" type="number" name="order" value="'+$order.data('order')+'" />');
         $shown.data('shown',$shown.is(':checked'));
-        $shown.removeAttr('disabled');
+        $shown.prop('disabled',false);
         $tr.append('<td><input type="button" name="save" value="Save" /> <input type="button" name="cancel" value="Cancel" /></td>');
         var restoreRow = function(photo){
           $category.text(photo?photo.category:$category.data('category'));
@@ -107,7 +107,7 @@ define([
           } else {
             $shown.prop('checked',false);
           }
-          $shown.attr('disabled','disabled');
+          $shown.prop('disabled',true);
           $tr.children('td').last().remove();
           //finally, remove the event handler for the cancel button or we'll get multiple TDs removed as we go
           $tr.off('click');
