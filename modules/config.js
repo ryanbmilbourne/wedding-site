@@ -46,5 +46,9 @@ module.exports = { //ALL_CAPS represent static values, lowercase_stuff are dynam
   mongoose: mongoose,
   NODE_ROOT: '/var/node/',
   UPLOAD_DIR: '/var/node/public/uploads/',
-  PUBLIC_UPLOAD_DIR: '/uploads/'
+  PUBLIC_UPLOAD_DIR: '/uploads/',
+  NAME: 'your site name',
+  EVENT_DESCRIPTION: 'your event description',
+  EVENT_DATE: 'Febtober 35, 2345',
+  EVENT_LOCATION_LINK: '<a href="https://maps.google.com/">The world!</a>'
 };
