@@ -5,14 +5,14 @@ var config = require('../modules/config')
   , smtpTransport = nodemailer.createTransport("SMTP",{
       service: "Gmail"
     , auth: {
-          user: "stephanieandgreg.us@gmail.com"
-        , pass: "mailpasswordsneedtobelong"
+          user: "your.email.address@gmail.com"
+        , pass: "changeme"
     }
   })
   ;
 
 app.get('/contact',function(req,res){
-  res.render('contact',{name:'stephanieandgreg.us - Contact',thanksdiv:'hidden',errordiv:'hidden'});
+  res.render('contact',{name:config.NAME+' - Contact',thanksdiv:'hidden',errordiv:'hidden'});
 });
 
 app.all('/send', function(req,res){
@@ -37,8 +37,8 @@ app.all('/send', function(req,res){
                 mailtext += key+': '+req.body[key]+'\n';
         });
         var mailOptions = {
-            from: "mailer@stephaneandgreg.us",
-            to: "stephanieandgreg.us@gmail.com",
+            from: "mailer@yoursite.com",
+            to: "your.email.address@gmail.com",
             subject: "Love Note from "+req.body.name,
             text: mailtext
         };
@@ -55,8 +55,8 @@ app.all('/send', function(req,res){
 
 app.get('/thanks',function(req,res){
     if(req.query.error){
-        res.render('contact',{name:'stephanieandgreg.us - Contact',thanksdiv:'hidden',error:req.query.error});
+        res.render('contact',{name:config.NAME+' - Contact',thanksdiv:'hidden',error:req.query.error});
     }else{
-      res.render('contact',{name:'stephanieandgreg.us - Contact',errordiv:'hidden',thanks:"Thank you for your message!"});
+      res.render('contact',{name:config.NAME+' - Contact',errordiv:'hidden',thanks:"Thank you for your message!"});
     }
 });
