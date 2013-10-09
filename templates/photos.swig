@@ -4,7 +4,7 @@
   {% parent %}
 {% endblock %}
 {% block content %}
-<div class="carousel slide" id="myCarousel" data-interval="8000">
+{# <div class="carousel slide" id="myCarousel" data-interval="8000">
     <div class="hover-container">
       <div class="carousel-inner">{% for img in photos %}
         <div class="item{% if loop.first %} active{% endif %}"><img src="{{ img.medsrc }}"></div>{% endfor %}
@@ -18,8 +18,20 @@
     </div>
     <div style="display:inline-block"><i class="icon-chevron-right icon-1"></i></div>
     <!-- div class="carousel-caption"><h4>{{ img.title }}</h4>{{ img.subtitle }}</div -->
-    </div>
-    <div id="blueimp-gallery" class="blueimp-gallery" data-start-slideshow="true">
-      {% for img in photos %}<a href="{{ img.medsrc }}" data-gallery><img src="{{ img.thmbsrc }}"></a>{% endfor %}
-    </div>
+  </div> #}
+  <div id="links">
+    {% for img in photos %}<a href="{{ img.medsrc }}" data-gallery="#blueimp-gallery"><img src="{{ img.thmbsrc }}"></a>
+    {% endfor %}
+  </div>
+{% endblock %}
+{% block footer %}
+  <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-continuous="true" data-toggle-controls-on-return="true" data-toggle-slideshow-on-space="true" data-enable-keyboard-navigation="true" data-close-on-escape="true" data-close-on-slide-click="true">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+  </div>
 {% endblock %}

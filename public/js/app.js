@@ -12,14 +12,24 @@ requirejs.config({
         bootstrap: '../js/bootstrap',
         webfonts: '../js/webfonts',
         svg: '../js/svg.min',
-        gallery: 'blueimp-gallery/js/jquery.blueimp-gallery.min',
+        'gallery-min': 'blueimp-gallery/js/jquery.blueimp-gallery.min',
+        gallery: 'blueimp-gallery/js/jquery.blueimp-gallery',
         raphael: '../js/raphael.min',
         mygallery: '../js/gallery'
     },
     shim: {
         bootstrap: ['jquery'],
-        gallery: ['jquery','bootstrap'],
+        //gallery: ['jquery','bootstrap'],
         raphael: ['svg']
+    },
+    map: {
+        'gallery': {
+          'blueimp-helper':'blueimp-gallery/js/blueimp-helper',
+          'blueimp-gallery':'blueimp-gallery/js/blueimp-gallery'
+        },
+        'gallery-min': {
+          'blueimp-helper':'blueimp-gallery/js/blueimp-helper'
+        }
     }
 });
 

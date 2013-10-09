@@ -48,7 +48,7 @@
                   <td>{{img.location}}</td>
                   <td>{{img.src}}</td>
                   <td>{{img.order}}</td>
-                  <td><input type="checkbox"{% if img.shown %} checked="checked"{% endif %} disabled="disabled" /></td>
+                  <td><input type="checkbox"{% if img.shown %} checked="checked"{% endif %} /></td>
                 </tr>
                 {% endfor %}
               </table>

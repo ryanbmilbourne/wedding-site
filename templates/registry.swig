@@ -20,22 +20,9 @@
         <h4 class="muted">all we really need is each other...</h4>
         <span class="muted">in lieu of traditional wedding gifts, we ask that you help us celebrate in these ways:</span>
         <div class="row-fluid text-center">
-            <div class="span4">
-                <div class="row bottom-right-border">
-                    <div class="span12">
-                    B.Y.O.T.<br>
-                    (bring your own toy)<br>
-                    <p class="muted">
-                        If you would like to bring a gift we ask that you bring a new, 
-                        unwrapped toy to donate to the <a href="http://www.choc.org/">Children&apos;s Hospital of Orange County</a>.
-                        CHOC relies on toy donations to lift the spirits of children with life-threatening illnesses.
-                    </p>
-                    <h3>Click for toy wish list.</h3>
-                    <span class="muted">Thank you for your generosity!</span>
-                    </div>
-                </div>
-                <div class="row right-border">
-                    <div class="span12">
+            <div class="span12">
+                <div class="row">
+                    <div class="span6 offset3">
                         <span class="muted">make a gift in any amount to the happy couple:</span>
                         <br>
                         <div class="input-prepend">
@@ -44,32 +31,22 @@
                         </div>
                     </div>
                 </div>
+                <hr>
+                <div class="row">
+                    <div class="span6 offset3">
+                    B.Y.O.T.<br>
+                    (bring your own toy)<br>
+                    <p class="muted">
+                        If you would like to bring a gift we ask that you bring a new, 
+                        unwrapped toy to donate to the <a href="http://www.choc.org/">Children&apos;s Hospital of Orange County</a>.
+                        CHOC relies on toy donations to lift the spirits of children with life-threatening illnesses.
+                    </p>
+                    <!--h3>Click for toy wish list.</h3-->
+                    <span class="muted">Thank you for your generosity!</span>
+                    </div>
+                </div>
             </div>
-            <div class="span8">
-                <form class="form-horizontal" action="/register" method="post">
-                <table class="table table-striped">
-                        <tr>
-                            <th>Item</th><th>Description</th><th></th><th>Price</th><th>Sponsor</th>
-                        </tr>
-                        {% for item in items %}
-                        <tr>
-                            <td>{{ item.name }}</td>
-                            <td>{{ item.desc }}</td>
-                            <td>{% if item.img.src %}<img src="{{ item.img.src }}" title="{{ item.img.title }}" style="width:100px;">{% else %}&nbsp;{% endif %}</td>
-                            <td>${{item.price}} <div style="display:inline;" class="input-prepend"><span class="add-on muted">X</span><input class="span5" type="text" pattern="[0-9]*" value="1" name="qty{{loop.index}}" /></div></td>
-                            <td><input class="btn" type="button" name="add{{ loop.index }}" value="SPONSOR IT!" /></td>
-                        </tr>
-                        {% endfor %}
-              </table>
-              <input class="btn" type="submit" value="Proceed to Checkout" />
-            </form>
-        
-            <div class="alert alert-success {{thanksdiv}}">{{thanks}}</div>
-            <div class="alert alert-error {{errordiv}}">{{error}}</div>
-                <br><br>
-            </div>
-            <div class="span2"></div>
-            <div class="span8"><img src="../images/footer-image.png"></div>
+            <div class="span8 offset2"><img src="../images/footer-image.png"></div>
             <div class="span2"></div>
         </div>
         <br><br>

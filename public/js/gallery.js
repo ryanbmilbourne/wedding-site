@@ -1,6 +1,8 @@
+'use strict';
+/*global define:false*/
 define([
 'jquery',
-'/components/blueimp-gallery/js/jquery.blueimp-gallery.min.js'
+'gallery'
 ], function($,gallery){
   $('#blueimp-gallery')
   .on('open', function(event){
