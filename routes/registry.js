@@ -9,7 +9,7 @@ app.get('/registry',function(req,res){
     Registry.find(function(err,registryEntries){
         console.log('rendering registryEntries');
         res.render('registry',{
-            name:'stephanieandgreg.us - Registry',
+            name:config.NAME+' - Registry',
             errordiv:'hidden',
             thanksdiv:'hidden',
             //thanks: req.session,
