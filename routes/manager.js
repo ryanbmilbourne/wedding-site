@@ -32,7 +32,7 @@ app.get('/manager',function(req,res){
               err = {regErr:err};
             }
             res.render('manager',{
-                name:'stephanieandgreg.us - Manager',
+                name:config.NAME+' - Manager',
                 items: registryEntries,
                 imgs: photos,
                 error: err,
