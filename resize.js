@@ -38,12 +38,12 @@ var models = require('./models/index2')
       gm(filepath)
       .size(function(err,size){
         if(!err){
-          var newwidth = 800;
+          var newwidth = 1920;
           var newheight = null;
           gm(filepath).resize(newwidth,newheight).write(thmbpath,function(err){
             if(!err){
-              photo.medloc = thmbpath;
-              photo.medsrc = pubname;
+              photo.lrgloc = thmbpath;
+              photo.lrgsrc = pubname;
               photo.save(function(err,newdoc){
                 saving--;
                 if(err){
@@ -79,19 +79,19 @@ walk(newImgPath,function(err,files){
   if(err) { process.exit(console.log(err)); }
   files.forEach(function(file){
     saving++;
-    if(/thmb/.test(file)){
+    if(/thmb|med/.test(file)){
       saving--;
       return;
     }
     var newfile = path.join(newImgPath,path.basename(file));
     var filepath = path.join(newImgPath,path.basename(file));
-    var medpath = path.join(newImgPath,path.basename(file,'.jpg'))+'-med.jpg';
+    var lrgpath = path.join(newImgPath,path.basename(file,'.jpg'))+'-lrg.jpg';
     var publicpath = path.join(publicPath,path.basename(file));
-    var medpublicpath = path.join(publicPath,path.basename(file,'.jpg'))+'-med.jpg';
+    var lrgpublicpath = path.join(publicPath,path.basename(file,'.jpg'))+'-lrg.jpg';
     if(path.extname(file).toLowerCase() === '.jpg'){
       Photo.findOne({location:file},function(err,photo){
         if(!err && photo){
-          q.push({filename:filepath,outname:medpath,pubname:medpublicpath,dbphoto:photo});
+          q.push({filename:filepath,outname:lrgpath,pubname:lrgpublicpath,dbphoto:photo});
         }else{
           saving--;
           console.log('couldnt find photo in db: %s',JSON.stringify(err));

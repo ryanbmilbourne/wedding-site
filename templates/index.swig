@@ -5,5 +5,5 @@
   <!--link rel="stylesheet" href="css/custom.css"-->
 {% endblock %}
 {% block content %}
-<img src="/images/session-15.jpg">
+<img src="/images/engagement-photos/DSC_4305-2-med.jpg">
 {% endblock %}

@@ -26,6 +26,8 @@ var mongoose = require('mongoose')
         shown:Boolean,
         thmbloc:String,
         thmbsrc:String,
+        lrgloc:String,
+        lrgsrc:String,
         medloc:String,
         medsrc:String
   })

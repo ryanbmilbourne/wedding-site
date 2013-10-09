@@ -25,6 +25,8 @@ var mongoose = require('mongoose')
         order:Number,
         thmbloc:String,
         thmbsrc:String,
+        lrgloc:String,
+        lrgsrc:String,
         medloc:String,
         medsrc:String
   })
