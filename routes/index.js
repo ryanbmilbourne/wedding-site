@@ -11,7 +11,7 @@ require('./manager');
 
 app.get('/', function(req,res){
   "use strict";
-  res.render('index',{name:config.NAME,
+  res.render('index.swig',{name:config.NAME,
     h1:config.EVENT_DESCRIPTION,
     date:config.EVENT_DATE,
     loc:config.EVENT_LOCATION_LINK

@@ -5,6 +5,7 @@ var express = require('express')
   , swig = require('swig')
   , logger = require('./logger')
   , Session = require('connect-mongodb')
+  , path = require('path')
   , Db = require('mongodb').Db
   , Server = require('mongodb').Server
   , mongoose = require('mongoose');
@@ -26,11 +27,15 @@ app.set('view engine','swig');
 
 swig.init({
   cache : app.get('env') === 'production',
-  root: '/var/node/templates/',
+  //root: '/var/node/templates/',
+  //root : path.join('/home/rmilbourne/wedding-site/','..','templates');
+  root: '/var/wedding-site/templates/',
   allowErrors:true
 });
-app.set('views','/var/node/templates/');
-app.use(connect.static('/var/node/public', { maxAge: /*86400000*/60000 }));
+//app.set('views','/var/node/templates/');
+//app.use(connect.static('/var/node/public', { maxAge: /*86400000*/60000 }));
+app.set('views','/var/wedding-site/templates');
+app.use(connect.static('/var/wedding-site/public', { maxAge: /*86400000*/60000 }));
 
 
 module.exports = { //ALL_CAPS represent static values, lowercase_stuff are dynamically required resources
@@ -44,11 +49,13 @@ module.exports = { //ALL_CAPS represent static values, lowercase_stuff are dynam
   swig: swig,
   logger: logger,
   mongoose: mongoose,
-  NODE_ROOT: '/var/node/',
-  UPLOAD_DIR: '/var/node/public/uploads/',
+  //NODE_ROOT: '/var/node/',
+  NODE_ROOT: '/var/wedding-site',
+  //UPLOAD_DIR: '/var/node/public/uploads/',
+  UPLOAD_DIR: '/var/wedding-site/public/uploads/',
   PUBLIC_UPLOAD_DIR: '/uploads/',
-  NAME: 'your site name',
-  EVENT_DESCRIPTION: 'your event description',
-  EVENT_DATE: 'Febtober 35, 2345',
+  NAME: 'Ryan&Hayley',
+  EVENT_DESCRIPTION: 'Wedding',
+  EVENT_DATE: 'August 02, 2014',
   EVENT_LOCATION_LINK: '<a href="https://maps.google.com/">The world!</a>'
 };

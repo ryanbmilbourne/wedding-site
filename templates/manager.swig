@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}StephanieAndGreg.us{% endblock %}</title>
+  <title>{% block title %}HayleyandRyan.weddings{% endblock %}</title>
   {% block head %}
   {% endblock %}
   <link rel="stylesheet" href="css/bootstrap.min.css">

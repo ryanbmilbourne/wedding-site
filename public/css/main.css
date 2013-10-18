@@ -1,11 +1,11 @@
 body {
-  color:#ED8474;
-  background-color:#9AD4C1;
+  color:#01dfd7;
+  background-color:#4c0b5f;
   font-family: 'Josefin Sans', sans-serif;
 }
 
 h1, h2 {
-    color:#ED8474;
+    color:#04B4AE;
     font-family: 'Fjord One', serif;
     font-weight: normal;
 }
@@ -28,7 +28,7 @@ hr.dots {
 h3 {
     font-family: 'Fjord One', serif;
     font-weight: 100;
-    color: #6FC7B9;
+    color: #04b4ae;
 }
 
 h4 {
@@ -86,23 +86,23 @@ h4 {
 }
 
 form .btn {
-    color:#ED8474;
+    color:#04B4AE;
     font-family: 'Josefin Sans', sans-serif;
     padding-top:8px;
 }
 
 .bottom-right-border {
-    border-bottom: 2px solid #ED8474;
-    border-right: 2px solid #ED8474;
+    border-bottom: 2px solid #04B4AE;
+    border-right: 2px solid #04B4AE;
 }
 
 .top-right-border {
-    border-top: 2px solid #ED8474;
-    border-right: 2px solid #ED8474;
+    border-top: 2px solid #04B4AE;
+    border-right: 2px solid #04B4AE;
 }
 
 .right-border {
-    border-right: 2px solid #ED8474;
+    border-right: 2px solid #04B4AE;
 }
 
 .wf-loading { 
