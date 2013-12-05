@@ -17,7 +17,7 @@ Setup
 2. cd to root directory of the package and issue 'npm i' to install needed modules.  These modules are outlined in package.json
 3. Install libcap2-bin package.
 4. We need to install the needed bower components.  cd to ../wedding-site/public and issue '../node_modules/.bin/bower install' to grab the needed components.
-4. Now, issue the following: $ sudo setcap cap_net_bind_service=+ep <location of nodejs binary> 
+4. Now, issue the following: '$ sudo setcap cap_net_bind_service=+ep <location of nodejs binary>' 
    this will allow non-root users to bind a port.
 5. Issue '$ nodejs app.js' from root package directory to start wedding-site.  
    pull up the site to use a curl command to test that the HTTP server is working and handling requests.
@@ -35,6 +35,5 @@ Customization
    2. index.swig:	Edit the header image in the block content.
    3. manager.swig:	Edit the block title text to show correct names.
    4. photos.swig:	No edits needed.  
-
 4. Edit ../wedding-site/routes/send.js to have proper email parameters.
 
