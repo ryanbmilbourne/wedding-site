@@ -14,13 +14,15 @@ Setup
 =====
 
 1. Install nodejs and npm.  If on Ubuntu, be sure to install current version of nodejs by adding the correct repository to apt, as the current distributed version in apt is severl versions behind.
-2. cd to root directory of the package and issue 'npm i' to install needed modules.  These modules are outlined in package.json
+2. cd to root directory of the package and issue `npm i` to install needed modules.  These modules are outlined in package.json
 3. Install libcap2-bin package.
-4. We need to install the needed bower components.  cd to ../wedding-site/public and issue '../node_modules/.bin/bower install' to grab the needed components.
-4. Now, issue the following: '$ sudo setcap cap_net_bind_service=+ep <location of nodejs binary>' 
+4. We need to install the needed bower components.  cd to ../wedding-site/public and issue `../node_modules/.bin/bower install` to grab the needed components.
+5. We'll need to install mongodb.  Ubuntu pulls down a deprecated version, so follow the Ubuntu directions here:
+  http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+5. Now, issue the following: `$ sudo setcap cap_net_bind_service=+ep <location of nodejs binary>` 
    this will allow non-root users to bind a port.
-5. Issue '$ nodejs app.js' from root package directory to start wedding-site.  
-   pull up the site to use a curl command to test that the HTTP server is working and handling requests.
+7. Issue `$ nodejs app.js` from root package directory to start wedding-site.  
+   pull up the site to test that the HTTP server is working and handling requests.
 
 Customization
 =============
